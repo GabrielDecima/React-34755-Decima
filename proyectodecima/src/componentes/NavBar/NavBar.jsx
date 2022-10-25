@@ -1,6 +1,6 @@
 import React from 'react';
-import Dropdown from './NavBar/Dropdown';
-import Form from './NavBar/Form';
+import Dropdown from './Dropdown';
+import Form from './Form';
 
 const NavBar = () => {
     return (
