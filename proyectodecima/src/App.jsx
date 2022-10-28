@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css'
+import './styles/App.css'
+import ItemListContainer from './componentes/itemListContainer';
 import NavBar from './componentes/NavBar/NavBar';
 import CartWidget from './componentes/Cart/CartWidget'
 
@@ -7,7 +8,8 @@ const App = () => {
     return (
         <>
        <NavBar/> 
-       <CartWidget/>
+       
+       <ItemListContainer/>
         </>
 
 
