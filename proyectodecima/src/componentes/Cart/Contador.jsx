@@ -8,7 +8,9 @@ function modifiContador (operacion) {
     if(operacion == "+"){
         setcontador(contador + 1)
     } else {
-            setcontador(contador - 1) 
+        if (contador>0){
+            setcontador(contador - 1)
+        } 
     }
 
 
