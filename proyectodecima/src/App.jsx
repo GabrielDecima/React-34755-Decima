@@ -5,6 +5,7 @@ import NavBar from './componentes/NavBar/NavBar';
 import CartWidget from './componentes/Cart/CartWidget'
 import Contador from './componentes/Cart/Contador';
 import Productos from './componentes/productos';
+import Home from './componentes/home';
 
 const App = () => {
     return (
@@ -12,7 +13,9 @@ const App = () => {
        <NavBar/> 
        
        <ItemListContainer/>
-        <Productos/>
+        <Home/>
+       
+
         </>
 
 
