@@ -8,8 +8,15 @@ const consultarDatos=() =>{
     fetch('https://api.mercadolibre.com/sites/MLA/search?q=zapatillas')
     .then((response) => response.json())
     .then(({results}) => {
-        console.log(Object.entries({results}))
-        // console.log(results.price)
+        
+        results.forEach(producto => {
+            console.log(producto)
+
+            setproducto((results).map(detalle => <p>Nombre: {detalle.title}</p>))
+
+        });
+        
+        
     })
 }
 
@@ -19,7 +26,7 @@ consultarDatos()
 
     return (
         <>
-           
+           {producto}
         </>
     );
 }
