@@ -1,27 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Home = () => {
 
 const [producto, setproducto] = useState([]);
-const consultarDatos=() =>{
+useEffect(() => {
+    const consultarDatos=() =>{
 
-    fetch('https://api.mercadolibre.com/sites/MLA/search?q=zapatillas')
-    .then((response) => response.json())
-    .then(({results}) => {
-        
-        results.forEach(producto => {
-            console.log(producto)
+        fetch('https://api.mercadolibre.com/sites/MLA/search?q=zapatillas')
+        .then((response) => response.json())
+        .then(({results}) => {
+            
+            results.forEach(producto => {
+                console.log(producto)
+    
+                setproducto((results).map((detalle) => 
 
-            setproducto((results).map(detalle => <p>Nombre: {detalle.title}</p>))
+                    <div className="card" style={{width: '18rem'}}>
+                        <img src="" className="card-img-top" alt="" />
+                            <div className="card-body">
+                                <h5 className="card-title"></h5>
+                                <p className="card-text">{detalle.title}</p>
+                                <p className="card-text">Marca: {detalle.attributes[0].value_name}</p>
+                                <p className="card-text">Precio: ${detalle.price}</p>
+                                <a href="#" className="btn btn-dark">Agregar al carrito</a>
+                            </div>
+                    </div>
 
-        });
-        
-        
-    })
-}
+               ))
+    
+            }) 
+        })
+    }
+    consultarDatos()
+    
+}, []);
 
-
-consultarDatos()
 
 
     return (
