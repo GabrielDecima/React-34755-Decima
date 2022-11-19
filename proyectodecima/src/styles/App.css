@@ -1,11 +1,19 @@
 
 .card{
-display:-webkit-inline-box;
+
 margin: 15px;
-height: 300px;
+
 
 }
 .card-text{
     
     font-size: 15px;
+}
+
+
+.imgCard{
+ height: 15rem;
+ width: 15rem;
+ border: solid 1px rgb(95, 41, 41);
+
 }
