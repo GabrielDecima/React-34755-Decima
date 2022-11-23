@@ -1,21 +1,31 @@
-import React from 'react';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './styles/App.css'
 import ItemListContainer from './componentes/itemListContainer';
 import NavBar from './componentes/NavBar/NavBar';
-import CartWidget from './componentes/Cart/CartWidget'
 import Contador from './componentes/Cart/Contador';
-import Productos from './componentes/productos';
 import Home from './componentes/home';
+import Carrito from './componentes/carrito';
+import About from './componentes/about';
+import Contacto from './componentes/contacto';
+
 
 const App = () => {
     return (
         <>
-       <NavBar/> 
        
-       <ItemListContainer/>
-        <Home/>
-       
+       <BrowserRouter>
+          <NavBar/>
 
+         <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/itemListContainer" element={<ItemListContainer/>} />
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contacto" element={<Contacto/>} />
+          <Route path="/carrito" element={<Carrito/>} />
+          </Routes> 
+
+       </BrowserRouter>
+      
         </>
 
 
