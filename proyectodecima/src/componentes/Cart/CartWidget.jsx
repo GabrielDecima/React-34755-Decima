@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import React from 'react';
 import {BsCart2} from 'react-icons/bs';
 class Question extends React.Component {
@@ -10,7 +11,7 @@ class Question extends React.Component {
 const CartWidget = () => {
     return (
         <>
-        <div className='d-flex m-auto p-2'><BsCart2/></div>
+        <Link className='d-flex m-auto p-2' to="/carrito"><BsCart2/></Link>
         
     
         </>
