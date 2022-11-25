@@ -8,7 +8,6 @@ import Carrito from './componentes/carrito';
 import About from './componentes/about';
 import Contacto from './componentes/contacto';
 
-
 const App = () => {
     return (
         <>
@@ -23,7 +22,7 @@ const App = () => {
           <Route path="/contacto" element={<Contacto/>} />
           <Route path="/carrito" element={<Carrito/>} />
           </Routes> 
-
+            
        </BrowserRouter>
       
         </>

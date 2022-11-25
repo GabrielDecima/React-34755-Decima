@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
 const [producto, setproducto] = useState([]);
 useEffect(() => {
-    const consultarDatos=() =>{
-
+    const consultarDatos= () =>{
         fetch('https://api.mercadolibre.com/sites/MLA/search?q=training')
         .then((response) => response.json())
         .then(({results}) => {
-            
             results.forEach(producto => {
-                console.log(producto)
+               
     
                 setproducto((results).map((detalle) => 
-
+                    
                     <div className="card" key={detalle.id} style={{width: '18rem'}}>
                         <img src={detalle.thumbnail} className="imgCard" alt="" />
                             <div className="card-body">
@@ -22,15 +21,15 @@ useEffect(() => {
                                 <p className="card-text">{detalle.title}</p>
                                 <p className="card-text">Marca: {detalle.attributes[0].value_name}</p>
                                 <p className="card-text">Precio: ${detalle.price}</p>
-                                <a href="#" className="btn btn-dark">Mostrar Producto</a>
+                                <button className='btn btn-dark'><Link className='nav-link' to={"/producto/" + detalle.id}>Ver producto</Link></button>
                             </div>
                     </div>
-
+    
                ))
     
             }) 
         })
-    }
+    } 
     consultarDatos()
     
 }, []);
@@ -47,35 +46,3 @@ useEffect(() => {
 export default Home;
 
 
-
-
-
- // const productos =[
-    //     {
-    //         id:1,nombre:"papa",marca:"pepita",precio:230,stock:30
-    //     },
-    //     {
-    //         id:2,nombre:"te",marca:"tecito",precio:530,stock:25
-    //     },
-    //     {
-    //         id:3,nombre:"mate",marca:"matecito",precio:280,stock:15
-    //     },
-    //     {
-    //         id:4,nombre:"cafe",marca:"cafecito",precio:930,stock:50
-    //     },
-    // ]
-
-//     const consultaBase = (habilitado) =>{
-//         return new Promise((resolve,reject) =>{
-
-//             if(habilitado) {
-//                 resolve(productos)
-//             }else{
-//                 reject("No habilitado")
-//             }
-            
-//         })
-
-//     }
-
-//    consultaBase(true).then(data => console.log(data))
