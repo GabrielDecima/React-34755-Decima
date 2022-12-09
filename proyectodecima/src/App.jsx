@@ -7,25 +7,26 @@ import Home from './componentes/home';
 import Carrito from './componentes/carrito';
 import About from './componentes/about';
 import Contacto from './componentes/contacto';
+import { DarkModeProvider } from './context/darkModeContext';
 
 const App = () => {
     return (
-        <>
-       
-       <BrowserRouter>
-          <NavBar/>
+      <>
+       <DarkModeProvider>
+            <BrowserRouter>
+                <NavBar/>
 
-         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/producto/:id" element={<ItemListContainer/>} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contacto" element={<Contacto/>} />
-          <Route path="/carrito" element={<Carrito/>} />
-          </Routes> 
-            
-       </BrowserRouter>
-      
-        </>
+              <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/producto/:id" element={<ItemListContainer/>} />
+                <Route path="/about" element={<About/>}/>
+                <Route path="/contacto" element={<Contacto/>} />
+                <Route path="/carrito" element={<Carrito/>} />
+              </Routes> 
+                  
+            </BrowserRouter>
+       </DarkModeProvider>
+      </>
 
 
   );

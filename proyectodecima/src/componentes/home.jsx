@@ -1,9 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../context/darkModeContext';
 
 const Home = () => {
 
 const [producto, setproducto] = useState([]);
+
+// consulto el estado de darkMode
+const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
+
+
 useEffect(() => {
     const consultarDatos= () =>{
         fetch('https://api.mercadolibre.com/sites/MLA/search?q=training')
@@ -37,8 +43,12 @@ useEffect(() => {
 
 
     return (
-        <div className='row'>
+        // Agregando DarkMODE//
+        <div className={darkMode ?'darkMode row': 'row'}>
+            <button onClick ={() => toggleDarkMode()}>Modo de visualización</button>
            {producto}
+           <p>{darkMode}</p>
+           
         </div>
     );
 }

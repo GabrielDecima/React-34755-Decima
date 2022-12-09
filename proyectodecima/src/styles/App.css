@@ -17,3 +17,8 @@ margin: 15px;
  border: solid 1px rgb(95, 41, 41);
 
 }
+
+.darkMode{
+    background-color: black;
+    color: aqua;
+}
