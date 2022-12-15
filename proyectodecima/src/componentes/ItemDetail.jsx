@@ -1,30 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
+import { CarritoContext } from '../context/CarritoContext';
 
 // Recibimos por parametro el resultado de la busqueda en la base de datos, luego mostramos la información
 // mediante una card de bt.
 
 const ItemDetail = (producto) => {
+
     const [cantidad, setcantidad] = useState(1);
-
-const carrito = []
-    const agregarAlCarrito = (prod,cant) => {
-    let indice = carrito.findIndex(producto => producto.id == prod.id)
-    const prodCarrito = {id: producto.producto.id, cantidad: cant}
-
-    if(indice != -1){
-      carrito[indice]= prodCarrito
-    }else{
-      carrito.push(prodCarrito)
-    }
+   
+    const {carrito,agregarProducto,eliminarDelCarrito} = useContext(CarritoContext)
     console.log(carrito)
-
-    }
-
-
-
-
-
-
     const cantidadProducto = (operacion) => {
       if (operacion== "+"){
         setcantidad(cantidad +1)
@@ -32,7 +17,7 @@ const carrito = []
         setcantidad(cantidad -1)
       }
     }
-
+  
     return (
         <>
             <div className="row g-0">
@@ -46,14 +31,15 @@ const carrito = []
                         <p className="card-text">Precio: ${producto.producto.price}</p>
 
                         <p className='card-text'>{cantidad}</p>
-                        <button className='btn btn-ligth' onClick={()=> cantidadProducto("+")}>+</button>
-                        <button className='btn btn-dark' onClick={()=> cantidadProducto("-")}>-</button>
-                        <a href="#" className="btn btn-dark" onClick={()=> agregarAlCarrito(producto,cantidad)}>Agregar al Carrito</a>
+                        <button className='btn btn-ligth m-1' onClick={()=> cantidadProducto("+")}>+</button>
+                        <button className='btn btn-dark m-1' onClick={()=> cantidadProducto("-")}>-</button>
+                        <a href="#" className="btn btn-dark m-1" onClick={()=> agregarProducto(producto,cantidad)}>Agregar al Carrito</a>
+                      
                     </div>
                  </div>
                  
                 </div> 
-            
+               
         </>
     );
 }

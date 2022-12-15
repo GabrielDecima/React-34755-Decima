@@ -7,7 +7,7 @@ const Home = () => {
 const [producto, setproducto] = useState([]);
 
 // consulto el estado de darkMode
-const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
+const {darkMode} = useContext(DarkModeContext);
 
 
 useEffect(() => {
@@ -16,7 +16,7 @@ useEffect(() => {
         .then((response) => response.json())
         .then(({results}) => {
             results.forEach(producto => {
-               
+              
     
                 setproducto((results).map((detalle) => 
                     
@@ -30,11 +30,11 @@ useEffect(() => {
                                 <button className='btn btn-dark'><Link className='nav-link' to={"/producto/" + detalle.id}>Ver producto</Link></button>
                             </div>
                     </div>
-    
                ))
     
             }) 
         })
+        
     } 
     consultarDatos()
     
@@ -45,9 +45,9 @@ useEffect(() => {
     return (
         // Agregando DarkMODE//
         <div className={darkMode ?'darkMode row': 'row'}>
-            <button onClick ={() => toggleDarkMode()}>Modo de visualización</button>
+            
            {producto}
-           <p>{darkMode}</p>
+          
            
         </div>
     );

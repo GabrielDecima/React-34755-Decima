@@ -8,6 +8,7 @@ import Carrito from './componentes/carrito';
 import About from './componentes/about';
 import Contacto from './componentes/contacto';
 import { DarkModeProvider } from './context/darkModeContext';
+import Swal from 'sweetalert2';
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/contacto" element={<Contacto/>} />
                 <Route path="/carrito" element={<Carrito/>} />
+                <Route path='*' element={<h1>Error 404</h1>}/>
               </Routes> 
                   
             </BrowserRouter>

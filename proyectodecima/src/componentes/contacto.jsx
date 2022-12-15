@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { DarkModeContext } from '../context/darkModeContext';
 
 const Contacto = () => {
-    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
+    const {darkMode,} = useContext(DarkModeContext);
     const datosFormulario = React.useRef()
 
     const consultarForm = (e) =>{
@@ -18,8 +18,6 @@ const Contacto = () => {
         <>
             {/* Agregando DarkMode */}
         <div className= {darkMode ? 'darkMode container': 'container'}>
-
-                 <button onClick ={() => toggleDarkMode()}>Modo de visualización</button>
 
             <form onSubmit={consultarForm} ref={datosFormulario}>
                 <div className="mb-3">
