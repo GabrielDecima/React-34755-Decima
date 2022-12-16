@@ -3,6 +3,8 @@ import { CarritoContext } from '../context/CarritoContext';
 import Swal from 'sweetalert2';
 import {consultarDatos} from '../utils/funcionesUtiles' 
 
+
+
 const Carrito = () => {
 
 const {carrito, agregarProducto, eliminarDelCarrito} = useContext(CarritoContext)
@@ -14,44 +16,29 @@ useEffect(() => {
 
 
     const prodCarrito = carrito.map(producto=>
-
+   
     <div className="card" key={producto.producto.id} style={{width: '18rem'}}>
             <img src={producto.producto.thumbnail} className="imgCard" alt="" />
             <div className="card-body">
                 <h5 className="card-title"></h5>
                 <p className="card-text">{producto.producto.title}</p>
+                <p className="card-text">Precio unitario: ${producto.producto.price}</p>
                 <p className="card-text" >Cantidad: {producto.cantidad}</p>
-                <p className="card-text">Precio: ${producto.producto.price}</p>
-                <button className='btn btn-dark'> Eliminar del carrito</button>
+                <p className="card-text" >Precio total: ${producto.producto.price*producto.cantidad}</p>
+                <button className='btn btn-dark'onClick={()=>eliminarDelCarrito(producto)}> Eliminar del carrito</button>
                 
             </div>
-    </div>)
-    
+    </div>
+
+    )  
+
  setcarritoLocal(prodCarrito)
+}, [carritoLocal]);
 
-
-
-}, []);
-
-
-    if(carrito.length !=0){
-        return (
-            <>
-                <div className="container row">
-                {carritoLocal}
-                </div>
-            </>
-        )
-
-    } else{
-        return (
-            <>
-            <h1>No existen elementos en el carrito</h1>
-            </>
-        )
-
-    }
-   
+return (
+    (carrito.length !=0) ? <><div className="container row">{carritoLocal}</div></>:<><h1>No existen elementos en el carrito</h1></>
+    
+    )
 }
 
 export default Carrito;
@@ -60,12 +47,3 @@ export default Carrito;
 
 
 
-// Swal.fire({
-
-//     title: ``,
-//     text: 'Modal with a custom image.',
-//     imageUrl: 'https://unsplash.it/400/200',
-//     imageWidth: 400,
-//     imageHeight: 200,
-//     imageAlt: 'Custom image',
-//   })

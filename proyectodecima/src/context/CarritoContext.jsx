@@ -12,7 +12,7 @@ const CarritoProvider = (props) => {
     const agregarProducto = (prod,cant) =>{
     const aux = carrito
     
-    let indice = aux.findIndex(producto => producto.id == prod.producto.id)
+    let indice = aux.findIndex(producto => producto.producto.id == prod.producto.id)
 
     if(indice != -1){
       aux[indice].cantidad = cant
@@ -24,9 +24,9 @@ const CarritoProvider = (props) => {
     
     }
     
-    const eliminarDelCarrito = (prod) =>{
+    const eliminarDelCarrito = (prod,cant) =>{
     const aux = carrito
-    let indice = aux.findIndex(producto => producto.id == prod.id)
+    let indice = aux.findIndex(producto => producto.producto.id == prod.producto.id)
 
     aux.splice(indice,1)
     setCarrito(aux)
