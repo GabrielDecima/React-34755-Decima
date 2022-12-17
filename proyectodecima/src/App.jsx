@@ -9,6 +9,7 @@ import About from './componentes/about';
 import Contacto from './componentes/contacto';
 import { DarkModeProvider } from './context/darkModeContext';
 import Swal from 'sweetalert2';
+import Footer from './componentes/footer';
 
 const App = () => {
     return (
@@ -16,7 +17,7 @@ const App = () => {
        <DarkModeProvider>
             <BrowserRouter>
                 <NavBar/>
-
+                
               <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/producto/:id" element={<ItemListContainer/>} />
@@ -25,7 +26,7 @@ const App = () => {
                 <Route path="/carrito" element={<Carrito/>} />
                 <Route path='*' element={<h1>Error 404</h1>}/>
               </Routes> 
-                  
+              <Footer/>
             </BrowserRouter>
        </DarkModeProvider>
       </>

@@ -1,3 +1,97 @@
 body{
     background-color: rgb(141, 157, 172)
 }
+
+
+/* -------------------------Estilos Generales FOOTER -----------------------*/
+
+
+/* Estilos Links de FOTER */
+
+.link_redes h3{
+    
+    text-align: center;
+    text-decoration: underline;
+    margin: 10px;
+    color: white;
+    
+
+}
+.link_redes div{
+    display: inline-block;
+    align-items: center;
+    text-align: center; 
+    margin-left: 120px;
+    margin-right: 120px;
+    padding:10px;
+    
+    
+}
+
+
+
+  
+
+
+.link_redes a{
+   
+    
+    text-decoration: none;
+    color: white;
+    border: solid rgb(127, 99, 99);
+    border-radius: 4px;
+    padding: 1px;
+    
+
+}
+
+.section-footer{
+    background: rgb(163,163,163);
+background: linear-gradient(63deg, rgba(163,163,163,1) 0%, rgba(108,118,121,1) 21%, rgba(129,152,159,1) 46%, rgba(91,110,112,1) 74%, rgba(160,163,163,1) 87%, rgba(161,161,161,1) 100%);
+
+border: outset 3px;
+    background-color: #ced1f0;
+
+}
+
+/* Aplicando transiciones/transformaciones footer */
+
+.tag_face{
+    transition: .3s;
+    transition-timing-function: ease;
+   
+       
+}
+
+
+
+.tag_tw{
+    transition: .3s;
+    transition-timing-function: ease;
+}
+.tag_oficial{
+    transition: .3s;
+    transition-timing-function: ease;
+}
+.tag_insta{
+    transition: .3s;
+    transition-timing-function: ease;
+}
+
+.tag_face:hover{
+    transform: scale(1.1);
+    
+}
+.tag_tw:hover{
+    transform: scale(1.1);
+    
+}
+.tag_oficial:hover{
+    transform: scale(1.1);
+}
+.tag_insta:hover{
+    transform: scale(1.1);
+}
+
+
+/* -------------------------FIN Estilos Generales FOOTER -----------------------*/
